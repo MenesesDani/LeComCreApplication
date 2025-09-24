@@ -1,31 +1,34 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/colors";
+import { TYPOGRAPHY } from "../../constants/typography";
 
 export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: "#F5F5F5",
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: colors.system.white,
   },
   greeting: {
-    fontSize: 20,
+    ...TYPOGRAPHY.header02,
     fontWeight: "bold",
-    color: "#0A2A43",
+    color: colors.brand.deepBlue,
   },
   rightSection: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 12,
+    gap: 10,
   },
   energyContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FF9500",
+    backgroundColor: colors.brand.orange,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    borderRadius: 20,
+    borderRadius: 90,
+    gap: 5,
   },
   energyIcon: {
     fontSize: 16,

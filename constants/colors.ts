@@ -15,6 +15,8 @@ export const colors = {
   },
   text: {
     principal: '#484560',
+    secundary: '#5F5C6B',
+    tertiary: '#AAA9AF',
   },
 } as const;
 

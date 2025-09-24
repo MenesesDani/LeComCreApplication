@@ -23,10 +23,10 @@ export function TopBar({ name, energy, onProfilePress }: TopBarProps) {
 
         {/* Perfil */}
         <TouchableOpacity onPress={onProfilePress} style={styles.profileButton}>
-          <Image
+          {/* <Image
             source={require("../../assets/profile.png")} // substitua pelo seu ícone
             style={styles.profileIcon}
-          />
+          /> */}
         </TouchableOpacity>
       </View>
     </View>
