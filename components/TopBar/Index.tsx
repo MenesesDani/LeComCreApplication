@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
+import { EnergyIcon } from "../icons/index";
+import { colors } from "../../constants/colors"; 
 
 type TopBarProps = {
   name: string;
@@ -10,25 +13,27 @@ type TopBarProps = {
 
 export function TopBar({ name, energy, onProfilePress }: TopBarProps) {
   return (
-    <View style={styles.container}>
-      {/* Saudação */}
+    <SafeAreaView style={styles.container}>
       <Text style={styles.greeting}>Olá, {name}</Text>
 
       <View style={styles.rightSection}>
-        {/* Energia */}
         <View style={styles.energyContainer}>
-          <Text style={styles.energyIcon}>⚡</Text>
+          <EnergyIcon 
+            width={16} 
+            height={16} 
+            primaryColor={colors.system.white}
+            secondaryColor={colors.system.white} 
+          />
           <Text style={styles.energyText}>{energy}</Text>
         </View>
 
-        {/* Perfil */}
         <TouchableOpacity onPress={onProfilePress} style={styles.profileButton}>
-          {/* <Image
-            source={require("../../assets/profile.png")} // substitua pelo seu ícone
+          <Image
+            source={require("../../assets/Profile.png")}
             style={styles.profileIcon}
-          /> */}
+          />
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -13,7 +13,7 @@ export const TYPOGRAPHY = {
   },
   header02: {
     fontSize: 24,
-    lineHeight: 100,
+    //lineHeight: 100,
     fontFamily: FONT_FAMILY.bold,
   },
   headerConstructions: {

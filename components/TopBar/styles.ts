@@ -6,9 +6,12 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-end",
     paddingHorizontal: 20,
     paddingVertical: 20,
+    paddingTop: 40,
+    
+    //Quando tiver conteúdo, esse fundo precisa ser desfocado e transparente.
     backgroundColor: colors.system.white,
   },
   greeting: {
@@ -25,32 +28,27 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.brand.orange,
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 90,
-    gap: 5,
-  },
-  energyIcon: {
-    fontSize: 16,
-    marginRight: 4,
-    color: "#fff",
+    borderRadius: 20,
+    gap: 2,
   },
   energyText: {
     fontSize: 14,
     fontWeight: "bold",
-    color: "#fff",
+    color: colors.system.white,
   },
   profileButton: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: "#666",
+    overflow: "hidden",
     justifyContent: "center",
     alignItems: "center",
   },
   profileIcon: {
-    width: 20,
-    height: 20,
-    tintColor: "#fff",
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 });
