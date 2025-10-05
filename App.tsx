@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 import { createBottomTabNavigator, BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, ParamListBase, RouteProp } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 import { colors } from "./constants/colors";
 import { TopBar } from "./components/TopBar/Index";
@@ -12,18 +13,21 @@ import ExploreScreen from "./screens/ExploreScreen";
 import GamesScreen from "./screens/GamesScreen";
 import ConquestScreen from "./screens/ConquestScreen";
 import ConstructionCover from "./screens/ConstructionCover";
+import UserScreen from "./screens/UserScreen"; // 👈 Importar a tela
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-// Wrapper pra TopBar
+// Wrapper pra TopBar com navegação
 function ScreenWithTopBar({ children }: { children: React.ReactNode }) {
+  const navigation = useNavigation(); // 👈 Hook de navegação
+
   return (
     <View style={styles.screenContainer}>
       <TopBar
         name="Daniel"
         energy={2}
-        onProfilePress={() => console.log("Perfil pressionado")}
+        onProfilePress={() => navigation.navigate("UserScreen" as never)} // 👈 Navegar para UserScreen
       />
       <View style={styles.screenContent}>{children}</View>
     </View>
@@ -131,8 +135,11 @@ export default function App() {
           {/* Todas as Tabs ficam dentro de uma única rota */}
           <Stack.Screen name="Tabs" component={TabRoutes} />
 
-          {/* 👇 aqui registramos a ConstructionCover */}
+          {/* Tela de construção */}
           <Stack.Screen name="ConstructionCover" component={ConstructionCover} />
+          
+          {/* 👇 Tela de perfil do usuário */}
+          <Stack.Screen name="UserScreen" component={UserScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

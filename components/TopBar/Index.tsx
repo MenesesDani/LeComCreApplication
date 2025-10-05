@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
 import { EnergyIcon } from "../icons/index";
 import { colors } from "../../constants/colors"; 
+import { useNavigation } from "@react-navigation/native";
 
 type TopBarProps = {
   name: string;
