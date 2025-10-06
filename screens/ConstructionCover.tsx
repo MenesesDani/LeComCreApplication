@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../components/Button';
 import { ArrowNextIcon } from '../components/icons';
+import { TYPOGRAPHY } from "../constants/typography";
+import { colors } from '../constants/colors';
 
 const ConstructionCover = () => {
   const navigation = useNavigation();
@@ -17,13 +19,23 @@ const ConstructionCover = () => {
         <Text style={styles.backButtonText}>← Voltar</Text>
       </TouchableOpacity>
 
+      {/* Imagem redimensionada */}
+      <Image
+        source={require('../assets/SmarsCover.png')} // caminho da sua imagem
+        style={styles.image}
+        resizeMode="contain"
+      />
+
       <Text style={styles.text}>
-        Teste de tela, essa seria a tela da capa da construção
+        Que tal colocar a mão na massa e construir seu próprio robô?
       </Text>
 
-      {/* Botão principal estilizado no próprio componente */}
+      <Text style={styles.textSecundary}>
+        Com o SMARS, você aprende robótica, eletrônica, programação e de um jeito simples, divertido e desafiador.
+      </Text>
+
       <Button
-        title="Continuar"
+        title="Começar"
         icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
@@ -36,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    rowGap: 25,
   },
   backButton: {
     position: 'absolute',
@@ -48,11 +61,25 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     fontWeight: '600',
   },
+  image: {
+    width: 256,
+    height: 214,
+    marginHorizontal: 25,
+    alignSelf:'flex-start',
+  },
   text: {
+    color: colors.brand.deepBlue,
+    ...TYPOGRAPHY.headerConstructions,
+    fontWeight:'bold',
     fontSize: 24,
-    textAlign: 'center',
-    paddingHorizontal: 20,
-    marginBottom: 20,
+    marginHorizontal: 25,
+    lineHeight: 30,
+  },
+    textSecundary: {
+    color: colors.text.secundary,
+    ...TYPOGRAPHY.body,
+    marginHorizontal: 25,
+    lineHeight: 22,
   },
 });
 
