@@ -11,12 +11,14 @@ export const styles = StyleSheet.create({
     gap: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 48,
+    height: 60,
+    alignSelf: 'stretch',
+    marginHorizontal: 25, // 👈 largura total com margem lateral
   },
 
   // quando o botão estiver pressionado
   buttonPressed: {
-    backgroundColor: colors.brand.yellow,
+    backgroundColor: colors.brand.yellow, // 👈 muda o tom ao pressionar
   },
 
   // quando o botão estiver desativado
@@ -36,7 +38,7 @@ export const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.brand.white,
+    color: colors.system.white,
     fontWeight: '600',
     ...TYPOGRAPHY.button,
   },

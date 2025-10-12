@@ -1,22 +1,32 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
-import { styles } from './styles'; // 👈 agora usa o styles externo
+import { Pressable, Text, View } from 'react-native';
+import { styles } from './styles';
 
 interface ButtonProps {
   title: string;
   onPress: () => void;
   icon?: React.ReactNode;
   style?: object;
+  disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style }) => {
+const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style, disabled = false }) => {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.button,
+        pressed && styles.buttonPressed,   // estado pressionado
+        disabled && styles.buttonDisabled, // estado desativado
+        style,
+      ]}
+    >
       <View style={styles.content}>
-        <Text style={styles.text}>{title}</Text>
+        <Text style={disabled ? styles.textDisabled : styles.text}>{title}</Text>
         {icon && <View style={styles.icon}>{icon}</View>}
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

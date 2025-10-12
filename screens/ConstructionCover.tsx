@@ -36,12 +36,12 @@ const ConstructionCover = () => {
       </Text>
 
       <Button
-        title="Começar"
+        title="INICIAR"
         icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
             <ButtonSecundary
-        title="Voltar"
+        title="VOLTAR"
         //icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.brand.deepBlue,
     ...TYPOGRAPHY.headerConstructions,
-    fontWeight:'bold',
+    //fontWeight:'bold',
     fontSize: 24,
     marginHorizontal: 25,
     lineHeight: 30,

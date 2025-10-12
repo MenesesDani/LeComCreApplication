@@ -19,7 +19,7 @@ export const TYPOGRAPHY = {
   headerConstructions: {
     fontSize: 24,
     lineHeight: 125,
-    fontFamily: FONT_FAMILY.medium,
+    fontFamily: FONT_FAMILY.bold,
   },
   body: {
     fontSize: 16,
