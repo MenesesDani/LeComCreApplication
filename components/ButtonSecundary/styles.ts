@@ -4,24 +4,30 @@ import { TYPOGRAPHY } from "../../constants/typography";
 
 export const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.brand.orange,
+    backgroundColor: 'transparent',
+    borderColor: 'orange',
+    borderWidth: 2,
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 15,
     gap: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 48,
+    height: 60,
+    alignSelf: 'stretch',
+    marginHorizontal: 25,
   },
 
   // quando o botão estiver pressionado
   buttonPressed: {
-    backgroundColor: colors.brand.yellow,
+    borderColor: colors.brand.orange, // 👈 borda muda para o laranja brand
+    backgroundColor: 'transparent',   // 👈 mantém o fundo transparente
   },
 
   // quando o botão estiver desativado
   buttonDisabled: {
-    backgroundColor: '#ccc',
+    borderColor: '#ccc',
+    backgroundColor: 'transparent',
   },
 
   // conteúdo interno (texto + ícone)
@@ -36,7 +42,7 @@ export const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.brand.white,
+    color: colors.brand.orange,
     fontWeight: '600',
     ...TYPOGRAPHY.button,
   },

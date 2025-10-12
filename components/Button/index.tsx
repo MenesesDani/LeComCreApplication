@@ -6,15 +6,15 @@ interface ButtonProps {
   title: string;
   onPress: () => void;
   icon?: React.ReactNode;
-  style?: object; // 👈 opcional: permite estilizar externamente
+  style?: object;
 }
 
 const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style }) => {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
       <View style={styles.content}>
-        {icon && <View style={styles.icon}>{icon}</View>}
         <Text style={styles.text}>{title}</Text>
+        {icon && <View style={styles.icon}>{icon}</View>}
       </View>
     </TouchableOpacity>
   );

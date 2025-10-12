@@ -38,7 +38,7 @@ export const TYPOGRAPHY = {
   },
   button: {
     fontSize: 18,
-    lineHeight: 150,
+    //lineHeight: 150,
     fontFamily: FONT_FAMILY.bold,
   },
   buttonSimple: {

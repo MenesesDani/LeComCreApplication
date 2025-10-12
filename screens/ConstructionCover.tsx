@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Button from '../components/Button';
 import { ArrowNextIcon } from '../components/icons';
 import { TYPOGRAPHY } from "../constants/typography";
 import { colors } from '../constants/colors';
+
+import Button from '../components/Button';
+import ButtonSecundary from '../components/ButtonSecundary';
 
 const ConstructionCover = () => {
   const navigation = useNavigation();
@@ -19,7 +21,6 @@ const ConstructionCover = () => {
         <Text style={styles.backButtonText}>← Voltar</Text>
       </TouchableOpacity>
 
-      {/* Imagem redimensionada */}
       <Image
         source={require('../assets/SmarsCover.png')} // caminho da sua imagem
         style={styles.image}
@@ -37,6 +38,11 @@ const ConstructionCover = () => {
       <Button
         title="Começar"
         icon={<ArrowNextIcon />}
+        onPress={() => console.log('Botão pressionado')}
+      />
+            <ButtonSecundary
+        title="Voltar"
+        //icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
     </View>
