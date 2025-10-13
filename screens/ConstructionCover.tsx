@@ -8,6 +8,7 @@ import { colors } from '../constants/colors';
 import Button from '../components/Button';
 import ButtonSecundary from '../components/ButtonSecundary';
 import ButtonBack from '../components/ButtonBack';
+import ButtonEmphasis from '../components/ButtonEmphasis';
 
 
 <ButtonBack />
@@ -35,10 +36,10 @@ const ConstructionCover = () => {
         Com o SMARS, você aprende robótica, eletrônica, programação e de um jeito simples, divertido e desafiador.
       </Text>
 
-      <Button
+      <ButtonEmphasis
         title="INICIAR"
         icon={<ArrowNextIcon />}
-        onPress={() => console.log('Botão pressionado')}
+        onPress={() => console.log('Botão emphasis pressionado')}
       />
       <ButtonSecundary
         title="VOLTAR"
