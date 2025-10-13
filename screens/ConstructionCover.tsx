@@ -56,11 +56,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     rowGap: 25,
   },
-  backButtonText: {
-    fontSize: 18,
-    color: '#007AFF',
-    fontWeight: '600',
-  },
   image: {
     width: 256,
     height: 214,

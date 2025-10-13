@@ -4,11 +4,12 @@ import { TYPOGRAPHY } from '../../constants/typography';
 
 export const styles = StyleSheet.create({
   button: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  icon: {
-    color: colors.brand.orange, // cor do SVG
+    zIndex: 10,
   },
 });
