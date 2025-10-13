@@ -7,19 +7,19 @@ import { colors } from '../constants/colors';
 
 import Button from '../components/Button';
 import ButtonSecundary from '../components/ButtonSecundary';
+import ButtonBack from '../components/ButtonBack';
+
+
+<ButtonBack />
+
 
 const ConstructionCover = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      {/* Botão de voltar com estilo próprio */}
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.backButtonText}>← Voltar</Text>
-      </TouchableOpacity>
+
+      <ButtonBack/>
 
       <Image
         source={require('../assets/SmarsCover.png')} // caminho da sua imagem
@@ -40,7 +40,7 @@ const ConstructionCover = () => {
         icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
-            <ButtonSecundary
+      <ButtonSecundary
         title="VOLTAR"
         //icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
@@ -55,12 +55,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     rowGap: 25,
-  },
-  backButton: {
-    position: 'absolute',
-    top: 50,
-    left: 20,
-    padding: 10,
   },
   backButtonText: {
     fontSize: 18,
