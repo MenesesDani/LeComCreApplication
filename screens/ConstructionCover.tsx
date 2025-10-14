@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowNextIcon } from '../components/icons';
 import { TYPOGRAPHY } from "../constants/typography";
@@ -11,19 +11,15 @@ import ButtonBack from '../components/ButtonBack';
 import ButtonEmphasis from '../components/ButtonEmphasis';
 
 
-<ButtonBack />
-
-
 const ConstructionCover = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-
-      <ButtonBack/>
+      <ButtonBack />
 
       <Image
-        source={require('../assets/SmarsCover.png')} // caminho da sua imagem
+        source={require('../assets/SmarsCover.png')}
         style={styles.image}
         resizeMode="contain"
       />
@@ -33,17 +29,19 @@ const ConstructionCover = () => {
       </Text>
 
       <Text style={styles.textSecundary}>
-        Com o SMARS, você aprende robótica, eletrônica, programação e de um jeito simples, divertido e desafiador.
+        Com o SMARS, você aprende robótica, eletrônica e programação de um jeito simples, divertido e desafiador.
       </Text>
 
       <ButtonEmphasis
         title="INICIAR"
         icon={<ArrowNextIcon />}
-        onPress={() => console.log('Botão emphasis pressionado')}
+        //Depois corrigir esse remendo
+        onPress={() => (navigation as any).navigate('Construction1')}
+        //onPress={() => navigation.navigate('Construction1')}
       />
+
       <ButtonSecundary
         title="VOLTAR"
-        //icon={<ArrowNextIcon />}
         onPress={() => console.log('Botão pressionado')}
       />
     </View>
@@ -61,17 +59,16 @@ const styles = StyleSheet.create({
     width: 256,
     height: 214,
     marginHorizontal: 25,
-    alignSelf:'flex-start',
+    alignSelf: 'flex-start',
   },
   text: {
     color: colors.brand.deepBlue,
     ...TYPOGRAPHY.headerConstructions,
-    //fontWeight:'bold',
     fontSize: 24,
     marginHorizontal: 25,
     lineHeight: 30,
   },
-    textSecundary: {
+  textSecundary: {
     color: colors.text.secundary,
     ...TYPOGRAPHY.body,
     marginHorizontal: 25,

@@ -1,3 +1,4 @@
+// App.tsx corrigido
 import React from "react";
 import { View, StyleSheet, Text, ActivityIndicator } from "react-native";
 import { createBottomTabNavigator, BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
@@ -10,26 +11,30 @@ import { colors } from "./constants/colors";
 import { TYPOGRAPHY } from "./constants/typography";
 import { TopBar } from "./components/TopBar/Index";
 import { HomeIcon, ExploreIcon, GamesIcon, ConquestIcon } from "./components/icons";
+
 import HomeScreen from "./screens/HomeScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import GamesScreen from "./screens/GamesScreen";
 import ConquestScreen from "./screens/ConquestScreen";
 import ConstructionCover from "./screens/ConstructionCover";
 import UserScreen from "./screens/UserScreen";
+import Construction1 from "./screens/SmarsRobot/Construction1";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 // Wrapper para TopBar com navegação
 function ScreenWithTopBar({ children }: { children: React.ReactNode }) {
-  const navigation = useNavigation();
+  // cast para any para evitar erros de tipagem do TS ao chamar navigate
+  const navigation: any = useNavigation();
 
   return (
     <View style={styles.screenContainer}>
       <TopBar
         name="Daniel"
         energy={2}
-        onProfilePress={() => navigation.navigate("UserScreen" as never)}
+        // navigate para a tela do stack (UserScreen)
+        onProfilePress={() => navigation.navigate("UserScreen")}
       />
       <View style={styles.screenContent}>{children}</View>
     </View>
@@ -148,10 +153,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Tabs">
           <Stack.Screen name="Tabs" component={TabRoutes} />
           <Stack.Screen name="ConstructionCover" component={ConstructionCover} />
           <Stack.Screen name="UserScreen" component={UserScreen} />
+          <Stack.Screen name="Construction1" component={Construction1} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
