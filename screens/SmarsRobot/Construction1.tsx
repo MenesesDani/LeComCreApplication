@@ -7,7 +7,6 @@ import { colors } from '../../constants/colors';
 
 import ButtonSecundary from '../../components/ButtonSecundary';
 import ButtonBack from '../../components/ButtonBack';
-import ButtonEmphasis from '../../components/ButtonEmphasis';
 import Button from '../../components/Button';
 
 const Construction1 = () => {
@@ -21,7 +20,7 @@ const Construction1 = () => {
         <Image
           source={require('../../assets/GifTest.gif')}
           style={styles.gif}
-          resizeMode="contain"
+          resizeMode="cover"
         />
       </View>
 
@@ -38,7 +37,6 @@ const Construction1 = () => {
         por partes!
       </Text>
 
-      {/* 🔹 Container horizontal dos botões */}
       <View style={styles.buttonRow}>
         <View style={styles.buttonWrapper}>
           <ButtonSecundary
@@ -65,16 +63,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     rowGap: 25,
+    paddingHorizontal: 25,
   },
   gifContainer: {
-    width: 256,
-    height: 214,
     marginHorizontal: 25,
-    alignSelf: 'flex-start',
-    backgroundColor: '#ff0000ff',
-    borderRadius: 8,
+    width: '100%',
+    height: 332,
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
+    backgroundColor: '#ff0000ff', // para testar visualmente
   },
   gif: {
     width: '100%',
@@ -84,22 +83,19 @@ const styles = StyleSheet.create({
     color: colors.brand.deepBlue,
     ...TYPOGRAPHY.headerConstructions,
     fontSize: 24,
-    marginHorizontal: 25,
     lineHeight: 30,
     alignSelf: 'flex-start',
   },
   textSecundary: {
     color: colors.text.secundary,
     ...TYPOGRAPHY.body,
-    marginHorizontal: 25,
     lineHeight: 22,
   },
   buttonRow: {
     flexDirection: 'row',
-    width: '100%',           // ocupa toda a largura disponível
-    paddingHorizontal: 25,   // define a margem lateral de 25px
+    width: '100%',
     marginVertical: 10,
-    columnGap: 20,           // espaço de 20px entre os botões
+    columnGap: 20,
   },
   buttonWrapper: {
     flex: 1,
