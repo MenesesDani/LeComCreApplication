@@ -8,6 +8,7 @@ import { colors } from '../../constants/colors';
 import ButtonSecundary from '../../components/ButtonSecundary';
 import ButtonBack from '../../components/ButtonBack';
 import ButtonEmphasis from '../../components/ButtonEmphasis';
+import Button from '../../components/Button';
 
 const Construction1 = () => {
   const navigation = useNavigation();
@@ -25,23 +26,31 @@ const Construction1 = () => {
       </View>
 
       <Text style={styles.text}>
-        Título principal aqui
+        Entendendo tudo
       </Text>
 
       <Text style={styles.textSecundary}>
-        Texto secundário explicativo aqui. Você pode adicionar mais detalhes e informações relevantes.
+        Antes de começar, é importante organizar todos os materiais.
+        A estrutura do robô é composta por peças impressas em 3D,
+        a parte eletrônica, que inclui dois motores, uma placa Arduino,
+        um driver de motor, um sensor ultrassônico e fios jumper para
+        as conexões. Tudo que você precisa está na caixinha, vamos
+        por partes!
       </Text>
 
-      <ButtonEmphasis
-        title="PRÓXIMO"
-        icon={<ArrowNextIcon />}
-        onPress={() => console.log('Próximo')}
-      />
+      {/* 🔹 Novo container horizontal para os botões */}
+      <View style={styles.buttonRow}>
+        <ButtonSecundary
+          title="VOLTAR"
+          onPress={() => navigation.goBack()}
+        />
 
-      <ButtonSecundary
-        title="VOLTAR"
-        onPress={() => navigation.goBack()}
-      />
+        <Button
+          title="PRÓXIMO"
+          icon={<ArrowNextIcon />}
+          onPress={() => console.log('Próximo')}
+        />
+      </View>
     </View>
   );
 };
@@ -58,7 +67,7 @@ const styles = StyleSheet.create({
     height: 214,
     marginHorizontal: 25,
     alignSelf: 'flex-start',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#ff0000ff',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
@@ -73,12 +82,19 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginHorizontal: 25,
     lineHeight: 30,
+    alignSelf: 'flex-start',
   },
   textSecundary: {
     color: colors.text.secundary,
     ...TYPOGRAPHY.body,
     marginHorizontal: 25,
     lineHeight: 22,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 25,
+    columnGap: 20,
   },
 });
 
