@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import React, { useRef } from "react";
+import { View, Text, TouchableOpacity, Image, Animated } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
 import { EnergyIcon } from "../icons/index";
@@ -13,20 +13,40 @@ type TopBarProps = {
 };
 
 export function TopBar({ name, energy, onProfilePress }: TopBarProps) {
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  const handleEnergyPress = () => {
+    // Animação de pulso quando tocado
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 1.7, // cresce 40%
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1, // volta ao tamanho normal
+        duration: 400,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.greeting}>Olá, {name}</Text>
 
       <View style={styles.rightSection}>
-        <View style={styles.energyContainer}>
-          <EnergyIcon 
-            width={16} 
-            height={16} 
-            primaryColor={colors.system.white}
-            secondaryColor={colors.system.white} 
-          />
+        <TouchableOpacity onPress={handleEnergyPress} style={styles.energyContainer}>
+          <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
+            <EnergyIcon 
+              width={16} 
+              height={16} 
+              primaryColor={colors.system.white}
+              secondaryColor={colors.system.white} 
+            />
+          </Animated.View>
           <Text style={styles.energyText}>{energy}</Text>
-        </View>
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={onProfilePress} style={styles.profileButton}>
           <Image
