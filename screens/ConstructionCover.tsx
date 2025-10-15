@@ -40,10 +40,12 @@ const ConstructionCover = () => {
         //onPress={() => navigation.navigate('Construction1')}
       />
 
-      <ButtonSecundary
-        title="VOLTAR"
-        onPress={() => console.log('Botão pressionado')}
-      />
+      <View style={styles.buttonSecundaryWrapper}>
+        <ButtonSecundary
+          title="VOLTAR"
+          onPress={() => console.log('Botão pressionado')}
+        />
+      </View>
     </View>
   );
 };
@@ -73,6 +75,10 @@ const styles = StyleSheet.create({
     ...TYPOGRAPHY.body,
     marginHorizontal: 25,
     lineHeight: 22,
+  },
+  buttonSecundaryWrapper: {
+    width: '100%',
+    paddingHorizontal: 25,
   },
 });
 
