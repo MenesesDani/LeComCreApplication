@@ -38,18 +38,22 @@ const Construction1 = () => {
         por partes!
       </Text>
 
-      {/* 🔹 Novo container horizontal para os botões */}
+      {/* 🔹 Container horizontal dos botões */}
       <View style={styles.buttonRow}>
-        <ButtonSecundary
-          title="VOLTAR"
-          onPress={() => navigation.goBack()}
-        />
+        <View style={styles.buttonWrapper}>
+          <ButtonSecundary
+            title="VOLTAR"
+            onPress={() => navigation.goBack()}
+          />
+        </View>
 
-        <Button
-          title="PRÓXIMO"
-          icon={<ArrowNextIcon />}
-          onPress={() => console.log('Próximo')}
-        />
+        <View style={styles.buttonWrapper}>
+          <Button
+            title="PRÓXIMO"
+            icon={<ArrowNextIcon />}
+            onPress={() => console.log('Próximo')}
+          />
+        </View>
       </View>
     </View>
   );
@@ -92,9 +96,13 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 25,
-    columnGap: 20,
+    width: '100%',           // ocupa toda a largura disponível
+    paddingHorizontal: 25,   // define a margem lateral de 25px
+    marginVertical: 10,
+    columnGap: 20,           // espaço de 20px entre os botões
+  },
+  buttonWrapper: {
+    flex: 1,
   },
 });
 

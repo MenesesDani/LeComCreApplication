@@ -12,21 +12,19 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 60,
-    alignSelf: 'stretch',
-    marginHorizontal: 25, // 👈 largura total com margem lateral
+    alignSelf: 'stretch', // permite que preencha o wrapper
+    // REMOVIDO: marginHorizontal: 25
+    width: '100%', // garante que, dentro do wrapper, ocupe toda largura
   },
 
-  // quando o botão estiver pressionado
   buttonPressed: {
-    backgroundColor: colors.brand.yellow, // 👈 muda o tom ao pressionar
+    backgroundColor: colors.brand.yellow,
   },
 
-  // quando o botão estiver desativado
   buttonDisabled: {
     backgroundColor: '#ccc',
   },
 
-  // conteúdo interno (texto + ícone)
   content: {
     flexDirection: 'row',
     alignItems: 'center',

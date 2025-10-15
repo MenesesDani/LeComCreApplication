@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 60,
     alignSelf: 'stretch',
-    marginHorizontal: 25,
+    //marginHorizontal: 25,
   },
 
   // quando o botão estiver pressionado

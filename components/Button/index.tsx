@@ -17,9 +17,9 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style, disabled =
       disabled={disabled}
       style={({ pressed }) => [
         styles.button,
-        pressed && styles.buttonPressed,   // estado pressionado
-        disabled && styles.buttonDisabled, // estado desativado
-        style,
+        pressed && styles.buttonPressed,
+        disabled && styles.buttonDisabled,
+        style, // permite sobrescrever estilos externos
       ]}
     >
       <View style={styles.content}>
