@@ -8,12 +8,13 @@ export default StyleSheet.create({
     width: "100%",
     height: 88,
     //marginTop: 40,
-    marginBottom: 20,
+    marginBottom: 10,
     paddingHorizontal: 20, // troquei marginHorizontal por padding
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "transparent",
+    //backgroundColor: "red"
   },
   sideButton: {
     width: 56,

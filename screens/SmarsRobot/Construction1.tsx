@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Image, Platform, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowNextIcon } from '../../components/icons';
 import { TYPOGRAPHY } from "../../constants/typography";
@@ -8,12 +8,13 @@ import { colors } from '../../constants/colors';
 import ButtonSecundary from '../../components/ButtonSecundary';
 import Button from '../../components/Button';
 import TopBarConstruction from '../../components/TopBarConstruction';
+import ProgressBar from '../../components/ProgressBar';
 
 const Construction1 = () => {
   const navigation = useNavigation<any>();
 
   return (
-    <SafeAreaView style={{ flex: 1, marginTop: 20 }}>
+    <SafeAreaView style={styles.safe}>
       <TopBarConstruction
         title="Montagem"
         onBackPress={() => navigation.goBack()}
@@ -58,6 +59,10 @@ const Construction1 = () => {
             />
           </View>
         </View>
+
+        <View style={styles.progressWrapper}>
+          <ProgressBar currentStep={1} totalSteps={12} />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -66,13 +71,14 @@ const Construction1 = () => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: 'transparent', // ajuste se tiver cor de fundo global
+    backgroundColor: 'transparent',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20, // garante margem no topo
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    rowGap: 25,
+    rowGap: 15,
     paddingHorizontal: 25,
   },
   gifContainer: {
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    backgroundColor: '#b3b3b3ff', // para testar visualmente
+    backgroundColor: '#b3b3b3ff',
   },
   gif: {
     width: '100%',
@@ -109,6 +115,10 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     flex: 1,
+  },
+  progressWrapper: {
+    width: '100%',
+    marginTop: 16,
   },
 });
 
