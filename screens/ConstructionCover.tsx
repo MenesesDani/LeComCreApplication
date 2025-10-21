@@ -42,7 +42,7 @@ const ConstructionCover = () => {
 
       <View style={styles.buttonSecundaryWrapper}>
         <ButtonSecundary
-          title="VOLTAR"
+          title="IR PARA AS CONSTRUÇÕES"
           onPress={() => console.log('Botão pressionado')}
         />
       </View>

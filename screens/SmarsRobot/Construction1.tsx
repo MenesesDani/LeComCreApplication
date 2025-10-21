@@ -1,63 +1,73 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowNextIcon } from '../../components/icons';
 import { TYPOGRAPHY } from "../../constants/typography";
 import { colors } from '../../constants/colors';
 
 import ButtonSecundary from '../../components/ButtonSecundary';
-import ButtonBack from '../../components/ButtonBack';
 import Button from '../../components/Button';
+import TopBarConstruction from '../../components/TopBarConstruction';
 
 const Construction1 = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   return (
-    <View style={styles.container}>
-      <ButtonBack />
+    <SafeAreaView style={{ flex: 1, marginTop: 20 }}>
+      <TopBarConstruction
+        title="Montagem"
+        onBackPress={() => navigation.goBack()}
+        onMenuPress={() => console.log('abrir menu')}
+      />
 
-      <View style={styles.gifContainer}>
-        <Image
-          source={require('../../assets/GifTest.gif')}
-          style={styles.gif}
-          resizeMode="cover"
-        />
-      </View>
-
-      <Text style={styles.text}>
-        Entendendo tudo
-      </Text>
-
-      <Text style={styles.textSecundary}>
-        Antes de começar, é importante organizar todos os materiais.
-        A estrutura do robô é composta por peças impressas em 3D,
-        a parte eletrônica, que inclui dois motores, uma placa Arduino,
-        um driver de motor, um sensor ultrassônico e fios jumper para
-        as conexões. Tudo que você precisa está na caixinha, vamos
-        por partes!
-      </Text>
-
-      <View style={styles.buttonRow}>
-        <View style={styles.buttonWrapper}>
-          <ButtonSecundary
-            title="VOLTAR"
-            onPress={() => navigation.goBack()}
+      <View style={styles.container}>
+        <View style={styles.gifContainer}>
+          <Image
+            source={require('../../assets/GifTest.gif')}
+            style={styles.gif}
+            resizeMode="cover"
           />
         </View>
 
-        <View style={styles.buttonWrapper}>
-          <Button
-            title="PRÓXIMO"
-            icon={<ArrowNextIcon />}
-            onPress={() => console.log('Próximo')}
-          />
+        <Text style={styles.text}>
+          Entendendo tudo
+        </Text>
+
+        <Text style={styles.textSecundary}>
+          Antes de começar, é importante organizar todos os materiais.
+          A estrutura do robô é composta por peças impressas em 3D,
+          a parte eletrônica, que inclui dois motores, uma placa Arduino,
+          um driver de motor, um sensor ultrassônico e fios jumper para
+          as conexões. Tudo que você precisa está na caixinha, vamos
+          por partes!
+        </Text>
+
+        <View style={styles.buttonRow}>
+          <View style={styles.buttonWrapper}>
+            <ButtonSecundary
+              title="VOLTAR"
+              onPress={() => navigation.goBack()}
+            />
+          </View>
+
+          <View style={styles.buttonWrapper}>
+            <Button
+              title="PRÓXIMO"
+              icon={<ArrowNextIcon />}
+              onPress={() => console.log('Próximo')}
+            />
+          </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    backgroundColor: 'transparent', // ajuste se tiver cor de fundo global
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -68,12 +78,12 @@ const styles = StyleSheet.create({
   gifContainer: {
     marginHorizontal: 25,
     width: '100%',
-    height: 332,
+    height: 320,
     borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    backgroundColor: '#ff0000ff', // para testar visualmente
+    backgroundColor: '#b3b3b3ff', // para testar visualmente
   },
   gif: {
     width: '100%',
