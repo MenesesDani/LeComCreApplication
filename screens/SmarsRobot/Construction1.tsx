@@ -24,14 +24,25 @@ const Construction1: React.FC = () => {
   const total = steps.length;
   const step = steps[Math.min(Math.max(0, stepIndex), total - 1)];
 
+  //const goNext = () => {
+  //  if (stepIndex + 1 < total) {
+  //    navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
+  //  } else {
+  //    // fluxo finalizado — ajuste conforme seu app
+  //    navigation.goBack();
+  //  }
+  //};
+
   const goNext = () => {
-    if (stepIndex + 1 < total) {
-      navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
-    } else {
-      // fluxo finalizado — ajuste conforme seu app
-      navigation.goBack();
-    }
-  };
+  if (stepIndex + 1 < total) {
+    navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
+  } else {
+    // fluxo finalizado — vai para a tela final
+    navigation.navigate('SmarsEndConstruction');
+    // ou se preferir substituir o stack para evitar voltar para os steps:
+    // navigation.replace('SmarsEndConstruction');
+  }
+};
 
   const goBack = () => {
     if (stepIndex > 0) {

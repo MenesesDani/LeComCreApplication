@@ -19,6 +19,7 @@ import ConquestScreen from "./screens/ConquestScreen";
 import ConstructionCover from "./screens/ConstructionCover";
 import UserScreen from "./screens/UserScreen";
 import Construction1 from "./screens/SmarsRobot/Construction1";
+import SmarsEndConstruction from "./screens/SmarsRobot/SmarsEndConstruction";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -159,6 +160,7 @@ export default function App() {
           <Stack.Screen name="UserScreen" component={UserScreen} />
           <Stack.Screen name="Construction1" component={Construction1} />
           <Stack.Screen name="Construction" component={Construction1} />
+          <Stack.Screen name="SmarsEndConstruction" component={SmarsEndConstruction} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
