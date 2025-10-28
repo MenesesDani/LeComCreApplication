@@ -161,6 +161,7 @@ export default function App() {
           <Stack.Screen name="Construction1" component={Construction1} />
           <Stack.Screen name="Construction" component={Construction1} />
           <Stack.Screen name="SmarsEndConstruction" component={SmarsEndConstruction} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </View>

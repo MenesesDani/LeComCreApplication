@@ -24,39 +24,36 @@ const Construction1: React.FC = () => {
   const total = steps.length;
   const step = steps[Math.min(Math.max(0, stepIndex), total - 1)];
 
-  //const goNext = () => {
-  //  if (stepIndex + 1 < total) {
-  //    navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
-  //  } else {
-  //    // fluxo finalizado — ajuste conforme seu app
-  //    navigation.goBack();
-  //  }
-  //};
-
+  // 👉 Avançar para o próximo passo ou tela final
   const goNext = () => {
-  if (stepIndex + 1 < total) {
-    navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
-  } else {
-    // fluxo finalizado — vai para a tela final
-    navigation.navigate('SmarsEndConstruction');
-    // ou se preferir substituir o stack para evitar voltar para os steps:
-    // navigation.replace('SmarsEndConstruction');
-  }
-};
+    if (stepIndex + 1 < total) {
+      navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
+    } else {
+      navigation.navigate('SmarsEndConstruction');
+      // Se quiser impedir voltar, use:
+      // navigation.replace('SmarsEndConstruction');
+    }
+  };
 
-  const goBack = () => {
+  // 👉 Voltar um passo dentro da montagem
+  const goBackStep = () => {
     if (stepIndex > 0) {
       navigation.navigate('Construction', { stepIndex: stepIndex - 1 });
     } else {
-      navigation.goBack();
+      navigation.navigate('ConstructionCover'); // volta pra capa se estiver no primeiro passo
     }
+  };
+
+  // 👉 Voltar direto pra capa (setinha do topo)
+  const goBackToCover = () => {
+    navigation.navigate('ConstructionCover');
   };
 
   return (
     <SafeAreaView style={styles.safe}>
       <TopBarConstruction
         title={step.title}
-        onBackPress={goBack}
+        onBackPress={goBackToCover} // ← setinha do topo vai pra capa
         onMenuPress={() => console.log('abrir menu')}
       />
 
@@ -71,7 +68,7 @@ const Construction1: React.FC = () => {
 
         <View style={styles.buttonRow}>
           <View style={styles.buttonWrapper}>
-            <ButtonSecundary title="VOLTAR" onPress={goBack} />
+            <ButtonSecundary title="VOLTAR" onPress={goBackStep} />
           </View>
 
           <View style={styles.buttonWrapper}>

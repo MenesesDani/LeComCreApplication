@@ -1,3 +1,4 @@
+// screens/SmarsRobot/ConstructionCover.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -10,13 +11,18 @@ import ButtonSecundary from '../components/ButtonSecundary';
 import ButtonBack from '../components/ButtonBack';
 import ButtonEmphasis from '../components/ButtonEmphasis';
 
-
 const ConstructionCover = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
+
+  const goBackToHome = () => {
+    //navigation.navigate('HomeScreen');
+    navigation.navigate('Tabs', { screen: 'Home' });
+  };
 
   return (
     <View style={styles.container}>
-      <ButtonBack />
+      {/* Setinha que volta pra tela de Home */}
+      <ButtonBack onPress={goBackToHome} />
 
       <Image
         source={require('../assets/SmarsCover.png')}
@@ -35,9 +41,7 @@ const ConstructionCover = () => {
       <ButtonEmphasis
         title="INICIAR"
         icon={<ArrowNextIcon />}
-        //Depois corrigir esse remendo
-        onPress={() => (navigation as any).navigate('Construction1')}
-        //onPress={() => navigation.navigate('Construction1')}
+        onPress={() => navigation.navigate('Construction1')}
       />
 
       <View style={styles.buttonSecundaryWrapper}>

@@ -29,7 +29,6 @@ const HomeScreen = () => {
 
       <ButtonNext onPress={handleNext} style={styles.arrow} />
 
-      <Text style={styles.text}>Tela Inicial</Text>
     </View>
   );
 };
