@@ -3,9 +3,9 @@ import { colors } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 64,
+    height: 64,
+    borderRadius: 64,
     backgroundColor: colors.brand.orange,
     justifyContent: 'center',
     alignItems: 'center',

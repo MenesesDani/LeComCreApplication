@@ -1,3 +1,4 @@
+// screens/HomeScreen.tsx
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import CardBeta from "../components/CardBeta";
@@ -15,7 +16,6 @@ type RootStackParamList = {
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const HomeScreen = () => {
-  // Adicione a tipagem ao useNavigation
   const navigation = useNavigation<NavigationProp>();
 
   const handleNext = () => {
@@ -27,8 +27,10 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <CardBeta image={require("../assets/CardRoboSmars.png")} />
 
-      <ButtonNext onPress={handleNext} style={styles.arrow} />
-
+      {/* Nova view que ocupa a largura e alinha o botão à direita */}
+      <View style={styles.arrowContainer}>
+        <ButtonNext onPress={handleNext} />
+      </View>
     </View>
   );
 };
@@ -36,13 +38,14 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "center", // mantém o Card centralizado
     marginTop: 20,
   },
-  arrow: {
-    alignSelf: "flex-end",
-    marginHorizontal: 40,
-    marginTop: -24,
+  arrowContainer: {
+    width: "100%",         // ocupa toda a largura da tela
+    alignItems: "flex-end",// alinha o conteúdo (o botão) à direita
+    paddingHorizontal: 40, // distância das laterais
+    marginTop: -24,        // mantém seu deslocamento anterior se for necessário
   },
   text: {
     fontSize: 24,

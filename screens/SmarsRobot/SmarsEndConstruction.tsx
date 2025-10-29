@@ -1,47 +1,80 @@
 // screens/SmarsRobot/SmarsEndConstruction.tsx
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { TYPOGRAPHY } from '../../constants/typography';
 import { colors } from '../../constants/colors';
-import Button from '../../components/Button';
+import ButtonEmphasis from '../../components/ButtonEmphasis';
+import ButtonSecundary from '../../components/ButtonSecundary';
 
 const SmarsEndConstruction: React.FC = () => {
-  return (
-    <SafeAreaView style={styles.safe}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Parabéns!</Text>
-        <Text style={styles.sub}>Você finalizou a montagem do Smars.</Text>
+  const navigation = useNavigation<any>();
 
-        <View style={{ width: '100%', marginTop: 24 }}>
-          <Button title="Voltar ao Início" onPress={() => { /* navigation se precisar */ }} />
-        </View>
+  const goBackToHome = () => {
+    navigation.navigate('Tabs', { screen: 'Home' });
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../../assets/SmarsCover.png')}
+        style={styles.image}
+        resizeMode="contain"
+      />
+
+      <Text style={styles.text}>
+        Parabéns!
+      </Text>
+
+      <Text style={styles.textSecundary}>
+        Com seu robô pronto agora é começar a brincar, mas antes, vem aprender como cada peça funciona!
+      </Text>
+
+      <ButtonEmphasis
+        title="Quero aprender mais"
+        onPress={() => console.log('Botão principal pressionado')}
+      />
+
+      <View style={styles.buttonSecundaryWrapper}>
+        <ButtonSecundary
+          title="Concluir e brincar"
+          onPress={goBackToHome}
+        />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
-    backgroundColor: 'white',
-  },
   container: {
     flex: 1,
-    paddingHorizontal: 24,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    rowGap: 25,
   },
-  title: {
-    ...TYPOGRAPHY.headerConstructions,
-    fontSize: 28,
+  image: {
+    width: 256,
+    height: 214,
+    marginHorizontal: 25,
+    alignSelf: 'flex-start',
+  },
+  text: {
     color: colors.brand.deepBlue,
-    marginBottom: 8,
+    ...TYPOGRAPHY.headerConstructions,
+    fontSize: 24,
+    marginHorizontal: 25,
+    lineHeight: 30,
+    alignSelf: 'flex-start'
   },
-  sub: {
-    ...TYPOGRAPHY.body,
+  textSecundary: {
     color: colors.text.secundary,
-    textAlign: 'center',
+    ...TYPOGRAPHY.body,
+    marginHorizontal: 25,
+    lineHeight: 22,
+  },
+  buttonSecundaryWrapper: {
+    width: '100%',
+    paddingHorizontal: 25,
   },
 });
 
