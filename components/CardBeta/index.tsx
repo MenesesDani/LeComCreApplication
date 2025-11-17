@@ -3,7 +3,7 @@ import { View, Image } from "react-native";
 import { styles } from "./styles";
 
 type CardBetaProps = {
-  image: any; // depois pode tipar como ImageSourcePropType
+  image: any;
 };
 
 const CardBeta: React.FC<CardBetaProps> = ({ image }) => {

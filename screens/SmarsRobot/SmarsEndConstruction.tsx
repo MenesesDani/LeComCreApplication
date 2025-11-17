@@ -17,7 +17,7 @@ const SmarsEndConstruction: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/SmarsCover.png')}
+        source={require('../../assets/constructions/Smars/SmarsCover.png')}
         style={styles.image}
         resizeMode="contain"
       />

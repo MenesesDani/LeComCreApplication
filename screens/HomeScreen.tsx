@@ -25,7 +25,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <CardBeta image={require("../assets/CardRoboSmars.png")} />
+      <CardBeta image={require("../assets/constructions/Smars/CardRoboSmars.png")} />
 
       {/* Nova view que ocupa a largura e alinha o botão à direita */}
       <View style={styles.arrowContainer}>

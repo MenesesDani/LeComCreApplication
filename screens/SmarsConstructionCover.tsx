@@ -1,12 +1,9 @@
-// screens/SmarsRobot/ConstructionCover.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowNextIcon } from '../components/icons';
 import { TYPOGRAPHY } from "../constants/typography";
 import { colors } from '../constants/colors';
-
-import Button from '../components/Button';
 import ButtonSecundary from '../components/ButtonSecundary';
 import ButtonBack from '../components/ButtonBack';
 import ButtonEmphasis from '../components/ButtonEmphasis';
@@ -15,17 +12,15 @@ const ConstructionCover = () => {
   const navigation = useNavigation<any>();
 
   const goBackToHome = () => {
-    //navigation.navigate('HomeScreen');
     navigation.navigate('Tabs', { screen: 'Home' });
   };
 
   return (
     <View style={styles.container}>
-      {/* Setinha que volta pra tela de Home */}
       <ButtonBack onPress={goBackToHome} />
 
       <Image
-        source={require('../assets/SmarsCover.png')}
+        source={require('../assets/constructions/Smars/SmarsCover.png')}
         style={styles.image}
         resizeMode="contain"
       />

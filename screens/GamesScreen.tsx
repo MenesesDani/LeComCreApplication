@@ -1,10 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { GameCard } from '../components/GameCard';
 
 const GamesScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Tela Games</Text>
+      <View style={styles.grid}>
+        <GameCard image={require('../assets/constructions/Smars/CardRoboSmars.png')} />
+        <GameCard image={require('../assets/constructions/Smars/CardRoboSmars.png')} />
+        <GameCard image={require('../assets/constructions/Smars/CardRoboSmars.png')} />
+        <GameCard image={require('../assets/constructions/Smars/CardRoboSmars.png')} />
+      </View>
     </View>
   );
 };
@@ -12,12 +18,22 @@ const GamesScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'flex-start', // alinha os itens ao topo
+    paddingVertical: 40,
   },
-  text: {
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 30,
+  },
+    title: {
     fontSize: 24,
+    fontWeight: '600',
+    marginBottom: 8,
   },
 });
+
 
 export default GamesScreen;

@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style, disabled =
         styles.button,
         pressed && styles.buttonPressed,
         disabled && styles.buttonDisabled,
-        style, // permite sobrescrever estilos externos
+        style,
       ]}
     >
       <View style={styles.content}>

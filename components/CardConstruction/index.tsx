@@ -3,7 +3,7 @@ import { View, Image } from "react-native";
 import { styles } from "./styles";
 
 type CardConstructionProps = {
-  image: any; // a imagem completa do card (fundo amarelo + conteúdo)
+  image: any;
   currentIndex?: number;
   totalItems?: number;
 };

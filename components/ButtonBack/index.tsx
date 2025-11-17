@@ -6,7 +6,7 @@ import { ArrowLeft } from "../icons/index";
 import { colors } from '../../constants/colors';
 
 interface ButtonBackProps {
-  onPress?: () => void; // opcional, se quiser sobrescrever a ação
+  onPress?: () => void;
 }
 
 const ButtonBack: React.FC<ButtonBackProps> = ({ onPress }) => {

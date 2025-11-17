@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style, disabled =
       Animated.sequence([
         Animated.timing(anim, {
           toValue: 1,
-          duration: 800, // mais rápido para pulsação mais visível
+          duration: 800,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
@@ -42,16 +42,14 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, icon, style, disabled =
     return () => loop.stop();
   }, [anim, disabled]);
 
-  // Largura do botão = largura da tela - margens
   const buttonWidth = screenWidth - horizontalMargin * 2;
 
-  // Maior pulsação visual (variação ±15px)
   const maxScale = (buttonWidth + 15) / buttonWidth;
   const minScale = (buttonWidth - 15) / buttonWidth;
 
   const scale = anim.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, maxScale], // vai e volta suavemente
+    outputRange: [1, maxScale],
   });
 
   return (

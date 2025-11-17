@@ -12,9 +12,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 60,
-    alignSelf: 'stretch', // permite que preencha o wrapper
-    // REMOVIDO: marginHorizontal: 25
-    width: '100%', // garante que, dentro do wrapper, ocupe toda largura
+    alignSelf: 'stretch',
+    width: '100%',
   },
 
   buttonPressed: {

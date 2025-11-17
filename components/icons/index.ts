@@ -7,3 +7,7 @@ export { default as EnergyIcon } from './EnergyIcon';
 export { default as ArrowBigIcon } from './ArrowBigIcon';
 export { default as ArrowNextIcon } from './ArrowNextIcon';
 export { default as ArrowLeft } from './ArrowLeft';
+
+export { default as HeartIcon } from './HeartIcon';
+export { default as ShareIcon } from './ShareIcon';
+export { default as BookmarkIcon } from './BookmarkIcon';

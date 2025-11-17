@@ -16,7 +16,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import GamesScreen from "./screens/GamesScreen";
 import ConquestScreen from "./screens/ConquestScreen";
-import ConstructionCover from "./screens/ConstructionCover";
+import ConstructionCover from "./screens/SmarsConstructionCover";
 import UserScreen from "./screens/UserScreen";
 import Construction1 from "./screens/SmarsRobot/Construction1";
 import SmarsEndConstruction from "./screens/SmarsRobot/SmarsEndConstruction";

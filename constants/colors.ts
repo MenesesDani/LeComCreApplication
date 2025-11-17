@@ -1,3 +1,4 @@
+
 export const colors = {
   brand: {
     yellow: '#FFB703',
@@ -20,10 +21,8 @@ export const colors = {
   },
 } as const;
 
-// Type para autocompletar
 export type Colors = typeof colors;
 
-// Export individual para facilitar importação
 export const {
   brand,
   system,

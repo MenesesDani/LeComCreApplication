@@ -15,22 +15,18 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 60,
     alignSelf: 'stretch',
-    //marginHorizontal: 25,
   },
 
-  // quando o botão estiver pressionado
   buttonPressed: {
-    borderColor: colors.brand.orange, // 👈 borda muda para o laranja brand
-    backgroundColor: 'transparent',   // 👈 mantém o fundo transparente
+    borderColor: colors.brand.orange,
+    backgroundColor: 'transparent', 
   },
 
-  // quando o botão estiver desativado
   buttonDisabled: {
     borderColor: '#ccc',
     backgroundColor: 'transparent',
   },
 
-  // conteúdo interno (texto + ícone)
   content: {
     flexDirection: 'row',
     alignItems: 'center',

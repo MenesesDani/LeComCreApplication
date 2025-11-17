@@ -2,15 +2,15 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: 20,       // distância do topo
+    marginTop: 20,
     marginHorizontal: 10,
-    alignItems: "center" // centraliza apenas na horizontal
+    alignItems: "center"
   },
   cardImage: {
-    width: "100%",       // ocupa toda a largura do container pai
-    height: 180,         // altura fixa (ajuste se precisar)
+    width: "100%",
+    height: 180,
     borderRadius: 12,
-    resizeMode: "cover", // garante que a imagem preencha
+    resizeMode: "cover",
   },
   dotsContainer: {
     flexDirection: "row",
@@ -24,9 +24,9 @@ export const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: "#007AFF", // cor ativa
+    backgroundColor: "#007AFF",
   },
   inactiveDot: {
-    backgroundColor: "#C7C7CC", // cor inativa
+    backgroundColor: "#C7C7CC",
   },
 });
