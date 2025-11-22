@@ -1,9 +1,9 @@
 export const steps: Step[] = [
   {
     title: 'Montagem',
-    header: 'Entendendo tudo',
+    header: 'Organize tudo',
     body:
-      'Antes de começar, é importante organizar todos os materiais. A estrutura do robô é composta por peças impressas em 3D, a parte eletrônica, que inclui dois motores, uma placa Arduino, um driver de motor, um sensor ultrassônico e fios jumper para as conexões. Tudo que você precisa está na caixinha, vamos por partes!',
+      'Antes de começar, é importante organizar todos os materiais. A estrutura do robô é composta por peças impressas em 3D, a parte eletrônica, que inclui dois motores, uma placa Arduino, um driver de motor, um sensor ultrassônico e fios jumper para as conexões. Tudo que você vai precisar está na caixinha!',
     gif: require('../../assets/constructions/Smars/Steps/GifStep1.gif'),
   },
   {

@@ -1,4 +1,3 @@
-// screens/SmarsRobot/Construction1.tsx
 import React from 'react';
 import {
   SafeAreaView, View, Text, StyleSheet, Image, Platform, StatusBar,
@@ -11,7 +10,7 @@ import ButtonSecundary from '../../components/ButtonSecundary';
 import Button from '../../components/Button';
 import TopBarConstruction from '../../components/TopBarConstruction';
 import ProgressBar from '../../components/ProgressBar';
-import { steps } from './stepsData'; // import relativo
+import { steps } from './stepsData';
 
 type RouteParams = {
   Construction: { stepIndex?: number };
@@ -24,27 +23,22 @@ const Construction1: React.FC = () => {
   const total = steps.length;
   const step = steps[Math.min(Math.max(0, stepIndex), total - 1)];
 
-  // 👉 Avançar para o próximo passo ou tela final
   const goNext = () => {
     if (stepIndex + 1 < total) {
       navigation.navigate('Construction', { stepIndex: stepIndex + 1 });
     } else {
       navigation.navigate('SmarsEndConstruction');
-      // Se quiser impedir voltar, use:
-      // navigation.replace('SmarsEndConstruction');
     }
   };
 
-  // 👉 Voltar um passo dentro da montagem
   const goBackStep = () => {
     if (stepIndex > 0) {
       navigation.navigate('Construction', { stepIndex: stepIndex - 1 });
     } else {
-      navigation.navigate('ConstructionCover'); // volta pra capa se estiver no primeiro passo
+      navigation.navigate('ConstructionCover');
     }
   };
 
-  // 👉 Voltar direto pra capa (setinha do topo)
   const goBackToCover = () => {
     navigation.navigate('ConstructionCover');
   };
@@ -53,7 +47,7 @@ const Construction1: React.FC = () => {
     <SafeAreaView style={styles.safe}>
       <TopBarConstruction
         title={step.title}
-        onBackPress={goBackToCover} // ← setinha do topo vai pra capa
+        onBackPress={goBackToCover}
         onMenuPress={() => console.log('abrir menu')}
       />
 
@@ -123,6 +117,7 @@ const styles = StyleSheet.create({
     color: colors.text.secundary,
     ...TYPOGRAPHY.body,
     lineHeight: 22,
+    textAlign: 'justify',
   },
   buttonRow: {
     flexDirection: 'row',
