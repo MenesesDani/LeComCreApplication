@@ -26,11 +26,12 @@ const ConstructionCover = () => {
       />
 
       <Text style={styles.text}>
-        Que tal colocar a mão na massa e construir seu próprio robô?
+        Que tal colocar a mão na massa e construir o seu próprio robô?
       </Text>
 
       <Text style={styles.textSecundary}>
-        Com o SMARS, você aprende robótica, eletrônica e programação de um jeito simples, divertido e desafiador.
+        Nesta nova atividade você vai aprender a construir o robô SMARS, um carrinho que anda sozinho! tudo isso
+        com componentes robóticos, arduino e muitas peças em 3d!
       </Text>
 
       <ButtonEmphasis
@@ -41,7 +42,7 @@ const ConstructionCover = () => {
 
       <View style={styles.buttonSecundaryWrapper}>
         <ButtonSecundary
-          title="IR PARA AS CONSTRUÇÕES"
+          title=" Ver outras construções"
           onPress={() => console.log('Botão pressionado')}
         />
       </View>
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     ...TYPOGRAPHY.body,
     marginHorizontal: 25,
     lineHeight: 22,
+    textAlign: 'justify',
   },
   buttonSecundaryWrapper: {
     width: '100%',
