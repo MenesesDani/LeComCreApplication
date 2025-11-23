@@ -1,6 +1,6 @@
 export const steps: Step[] = [
   {
-    title: 'Montagem',
+    title: 'Organize a bancada',
     header: 'Organize tudo',
     body:
       'Antes de começar, é importante organizar todos os materiais. A estrutura do robô é composta por peças impressas em 3D, a parte eletrônica, que inclui dois motores, uma placa Arduino, um driver de motor, um sensor ultrassônico e fios jumper para as conexões. Tudo que você vai precisar está na caixinha!',
@@ -10,63 +10,63 @@ export const steps: Step[] = [
     title: 'Montagem',
     header: 'Instalando os motores',
     body:
-      'Com a base montada, é hora de instalar os motores! Pegue os dois motores DC e encaixe cada um nas cavidades laterais do corpo, de forma que os eixos fiquem voltados para a traseira do robô. Certifique-se de que estejam bem fixos nas fendas — isso garantirá estabilidade durante o movimento.',
+      'junto com a base 3d, é hora de instalar os motores! Pegue os dois motores DC e encaixe cada um nas cavidades laterais do corpo, de forma que os eixos fiquem voltados para fora da base. Certifique-se de que estejam bem fixos nas fendas, isso garantirá estabilidade.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep2.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Rodas e esteiras',
+    header: 'Encaixe os suportes',
     body:
-      'Agora que os motores estão fixados, conecte os eixos às rodas. Encaixe os eixos nas laterais das pernas, posicione as rodas nas extremidades e coloque as esteiras ao redor delas, como em um pequeno tanque. As esteiras devem estar bem ajustadas para o robô se mover corretamente.',
+      'Agora que os motores estão fixados, Com cuidado encaixe os suportes para a bateria que também vão segurar com mais segurança os nossos dois motores. Essas duas peças vão deixar futuramente as rodas com mais fixação também',
     gif: require('../../assets/constructions/Smars/Steps/GifStep3.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Suporte para o sensor',
+    header: 'Encaixe a bateria',
     body:
-      'Pegue o suporte frontal, uma peça com dois buracos circulares, e encaixe na parte da frente do corpo do robô. Esse suporte servirá para instalar o sensor ultrassônico — os “olhos” do robô. O encaixe deve ser firme, mas sem forçar a peça, garantindo estabilidade para o sensor.',
+      'Agora é hora de conectar a nossa bateria, é ela que vai energizar o nosso robô. Ela deve ficar entre os dois suportes que você acabou de instalar e deixar ela bem abaixo do nosso arduino que ainda vamos instalar.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep4.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Suporte para o Arduino',
+    header: 'Encaixe das rodas',
     body:
-      'Com a frente do robô montada, vamos instalar a base onde ficará a placa de controle. Pegue a peça retangular que serve como suporte para o Arduino e encaixe-a na parte traseira superior do corpo. Alinhe bem, pois nela será fixada a placa de circuito responsável por controlar o robô.',
+      'Duas rodas já estão fixadas, mas as outras duas precisam estar encaixadas no eixo do motor, serão essas duas que vão mover nosso robô e também permitir ele fazer curvas e andar para trás.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep5.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Encaixe do Arduino',
+    header: 'Hora de montar a esteira',
     body:
       'Após fixar o suporte, posicione a placa Arduino sobre ele, encaixando como uma gaveta. Os furos da placa devem coincidir com os da estrutura. Evite forçar os componentes eletrônicos. Essa placa é o cérebro do robô e será responsável por executar todos os comandos.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep6.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Conexão com o driver',
+    header: 'Coloque a esteira no lugar',
     body:
-      'Hora de começar a parte elétrica! Conecte os fios dos motores ao driver de motor. Cada motor possui dois fios, que devem ser ligados aos canais de saída A e B do driver. Esse componente será o intermediário entre o Arduino e os motores, controlando a direção e a velocidade.',
+      'Adicione o último encaixe da sua esteira para que ela abrace as duas rodas do nosso carrinho.São elas que vão dar a mobilidade dele, e permitir toda sua movimentação.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep7.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Ligação do driver',
+    header: 'Ligação do sensor',
     body:
-      'Com os motores conectados, ligue o driver ao Arduino. Conecte os pinos de controle do driver nas portas digitais 4, 5, 6 e 7 do Arduino. Em seguida, ligue o GND do driver ao GND do Arduino e o VCC à alimentação. Esses fios transmitem os sinais de comando para o movimento do robô.',
+      'Essa peça com dois pequenos círculos é o nosso sensor ultrasônico. Ele será nosso olho e vai permitir o robô fazer algumas ações, como desviar dos obstáculos e seguir você também',
     gif: require('../../assets/constructions/Smars/Steps/GifStep8.gif'),
   },
   {
     title: 'Montagem',
-    header: 'Instalação do sensor',
+    header: 'Instalação do arduino',
     body:
-      'Agora é hora de instalar o sensor ultrassônico HC-SR04. Posicione-o nos furos do suporte frontal e conecte seus quatro pinos: VCC no 5V do Arduino, GND no GND, TRIG e ECHO em portas digitais diferentes. Esse sensor mede a distância até obstáculos usando ondas ultrassônicas.',
+      'Encaixe o driver sobe o arduino e coloque ele nos frisos na laterial do da caixa do robô. Cuidado ao instalar o driver e o arduino, nessa hora você pode pedir auxílio ao instrutor, é a parte mais importante da nossa construção.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep9.gif'),
   },
   {
     title: 'Código',
-    header: 'Colocando o código',
+    header: 'Hora de fazer as ligações',
     body:
-      'O Arduino já vem com o código pronto! Basta conectá-lo ao computador com o cabo azul da caixa e enviar o código. Depois, ligue na bateria e veja seu robô começar a funcionar.',
+      'Junto com o ardunio veio um pequeno papel ilustrando onde cada jumper (fiozinho) deve ser instalado. São eles que vão levar energia e informação a todo o nosso robô.',
     gif: require('../../assets/constructions/Smars/Steps/GifStep10.gif'),
   },
   {
