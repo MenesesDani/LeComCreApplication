@@ -1,16 +1,15 @@
-// screens/HomeScreen.tsx
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import CardBeta from "../components/CardBeta";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ButtonNext from "../components/ButtonNext";
+import BetaMessage from "../components/BetaMessage";
 
-// Defina o tipo das suas rotas
+
 type RootStackParamList = {
   Home: undefined;
   ConstructionCover: undefined;
-  // Adicione outras telas aqui conforme necessário
 };
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -19,91 +18,103 @@ const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp>();
 
   const handleNext = () => {
-    console.log("Botão Next pressionado!");
     navigation.navigate("ConstructionCover");
   };
 
-  const handleCard1Press = () => {
-    console.log("Card 1 pressionado!");
-    // Navegue para onde desejar
-  };
-
-  const handleCard2Press = () => {
-    console.log("Card 2 pressionado!");
-    // Navegue para onde desejar
-  };
-
   return (
-    <View style={styles.container}>
-      <CardBeta image={require("../assets/constructions/Smars/CardRoboSmars.png")} />
+    <ScrollView 
+      style={styles.scrollView}
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
+      <Image
+        source={require("../assets/constructions/Smars/CardRoboSmars.png")}
+        style={styles.mainCardImage}
+        resizeMode="cover"
+      />
 
-      {/* Botão Next alinhado à direita */}
+      <View style={styles.dotsContainer}>
+        <View style={styles.dotActive} />
+        <View style={styles.dot} />
+        <View style={styles.dot} />
+      </View>
+
       <View style={styles.arrowContainer}>
         <ButtonNext onPress={handleNext} />
       </View>
 
-      {/* Cards quadrados lado a lado */}
       <View style={styles.squareCardsContainer}>
-        <TouchableOpacity 
-          style={styles.squareCard}
-          onPress={handleCard1Press}
-          activeOpacity={0.7}
-        >
-          <Image 
+        <TouchableOpacity style={styles.squareCard}>
+          <Image
             source={require("../assets/constructions/Smars/CardRoboSmars.png")}
             style={styles.cardImage}
             resizeMode="cover"
           />
         </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.squareCard}
-          onPress={handleCard2Press}
-          activeOpacity={0.7}
-        >
-          <Image 
+        <TouchableOpacity style={styles.squareCard}>
+          <Image
             source={require("../assets/constructions/Smars/CardRoboSmars.png")}
             style={styles.cardImage}
             resizeMode="cover"
           />
         </TouchableOpacity>
       </View>
-    </View>
+
+      <View style={styles.newsContainer}>
+        <Text style={styles.newsTitle}>Novidades na plataforma</Text>
+        <View style={styles.newsRow}>
+          <Image
+            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
+            style={styles.newsImage}
+            resizeMode="cover"
+          />
+          <Image
+            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
+            style={styles.newsImage}
+            resizeMode="cover"
+          />
+        </View>
+      </View>
+
+      <BetaMessage />
+
+      <View style={styles.bottomSpacing} />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   container: {
-    flex: 1,
+    paddingTop: 20,
     alignItems: "center",
-    marginTop: 20,
+    paddingBottom: 100,
   },
-  squareCardsContainer: {
+  mainCardImage: {
+    width: "88%",
+    height: 180,
+    borderRadius: 16,
+  },
+  dotsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignSelf: "stretch", // respeita as margens do container pai
-    paddingHorizontal: 40,
-    marginTop: 20,
-    gap: 16, // espaçamento entre os cards
+    marginTop: 10,
+    gap: 6,
   },
-  squareCard: {
-    flex: 1,
-    aspectRatio: 1, // mantém o card quadrado
-    backgroundColor: "#f0f0f0",
-    borderRadius: 12,
-    overflow: "hidden",
-    elevation: 3, // sombra no Android
-    shadowColor: "#000", // sombra no iOS
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "#d0d0d0",
   },
-  cardImage: {
-    width: "100%",
-    height: "100%",
+  dotActive: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "#4aa3ff",
   },
   arrowContainer: {
     width: "100%",
@@ -111,9 +122,47 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     marginTop: -24,
   },
-  text: {
-    fontSize: 24,
+  squareCardsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignSelf: "stretch",
+    paddingHorizontal: 40,
     marginTop: 20,
+    gap: 16,
+  },
+  squareCard: {
+    flex: 1,
+    aspectRatio: 1,
+    borderRadius: 16,
+    overflow: "hidden",
+    backgroundColor: "#f2f2f2",
+  },
+  cardImage: {
+    width: "100%",
+    height: "100%",
+  },
+  newsContainer: {
+    marginTop: 28,
+    alignSelf: "stretch",
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  newsTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 12,
+  },
+  newsRow: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  newsImage: {
+    flex: 1,
+    height: 110,
+    borderRadius: 12,
+  },
+  bottomSpacing: {
+    height: 20,
   },
 });
 
