@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
-import CardBeta from "../components/CardBeta";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ButtonNext from "../components/ButtonNext";
@@ -27,20 +26,22 @@ const HomeScreen = () => {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      <Image
-        source={require("../assets/constructions/Smars/CardRoboSmars.png")}
-        style={styles.mainCardImage}
-        resizeMode="cover"
-      />
+      <View style={styles.mainCardWrapper}>
+        <Image
+          source={require("../assets/constructions/Smars/CardRoboSmars.png")}
+          style={styles.mainCardImage}
+          resizeMode="cover"
+        />
+        
+        <View style={styles.arrowContainer}>
+          <ButtonNext onPress={handleNext} />
+        </View>
+      </View>
 
       <View style={styles.dotsContainer}>
         <View style={styles.dotActive} />
         <View style={styles.dot} />
         <View style={styles.dot} />
-      </View>
-
-      <View style={styles.arrowContainer}>
-        <ButtonNext onPress={handleNext} />
       </View>
 
       <View style={styles.squareCardsContainer}>
@@ -94,8 +95,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 100,
   },
-  mainCardImage: {
+  mainCardWrapper: {
     width: "88%",
+    position: "relative",
+  },
+  mainCardImage: {
+    width: "100%",
     height: 180,
     borderRadius: 16,
   },
@@ -117,10 +122,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#4aa3ff",
   },
   arrowContainer: {
-    width: "100%",
-    alignItems: "flex-end",
-    paddingHorizontal: 40,
-    marginTop: -24,
+    position: "absolute",
+    bottom: -20,
+    right: -5,
   },
   squareCardsContainer: {
     flexDirection: "row",
