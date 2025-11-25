@@ -51,13 +51,13 @@ const HomeScreen = () => {
 
       <View style={styles.cardsHomeContainer}>
         <CardHome
-          image={require("../assets/constructions/Smars/CardRoboSmars.png")}
-          title="Pontuação"
-          onPress={() => handleCardPress("Pontuação")}
+          image={require("../assets/ilustrations/Point.png")}
+          title="Comunidade"
+          onPress={() => handleCardPress("Comunidade")}
         />
         
         <CardHome
-          image={require("../assets/constructions/Smars/CardRoboSmars.png")}
+          image={require("../assets/ilustrations/Conquest.png")}
           title="Conquistas"
           onPress={() => handleCardPress("Conquistas")}
         />
