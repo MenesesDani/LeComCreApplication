@@ -32,7 +32,7 @@ function ScreenWithTopBar({ children }: { children: React.ReactNode }) {
   return (
     <View style={styles.screenContainer}>
       <TopBar
-        name="Daniel"
+        name="Pedro"
         energy={2}
         // navigate para a tela do stack (UserScreen)
         onProfilePress={() => navigation.navigate("UserScreen")}

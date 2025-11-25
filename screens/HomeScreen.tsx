@@ -5,7 +5,7 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ButtonNext from "../components/ButtonNext";
 import BetaMessage from "../components/BetaMessage";
 import CardHome from "../components/CardHome";
-
+import NewsCard from "../components/NewsCard";
 
 type RootStackParamList = {
   Home: undefined;
@@ -26,7 +26,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView 
+    <ScrollView
       style={styles.scrollView}
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
@@ -37,7 +37,7 @@ const HomeScreen = () => {
           style={styles.mainCardImage}
           resizeMode="cover"
         />
-        
+
         <View style={styles.arrowContainer}>
           <ButtonNext onPress={handleNext} />
         </View>
@@ -55,28 +55,43 @@ const HomeScreen = () => {
           title="Comunidade"
           onPress={() => handleCardPress("Comunidade")}
         />
-        
+
         <CardHome
           image={require("../assets/ilustrations/Conquest.png")}
-          title="Conquistas"
-          onPress={() => handleCardPress("Conquistas")}
+          title="Troféis"
+          onPress={() => handleCardPress("Troféis")}
         />
       </View>
 
       <View style={styles.newsContainer}>
         <Text style={styles.newsTitle}>Novidades na plataforma</Text>
-        <View style={styles.newsRow}>
-          <Image
-            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
-            style={styles.newsImage}
-            resizeMode="cover"
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.newsScroll}
+        >
+          <NewsCard
+            image={require("../assets/ilustrations/News/Programador.jpg")}
+            title="Descubra o que faz um programador?"
+            onPress={() => console.log("Clique card Notícia")}
           />
-          <Image
-            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
-            style={styles.newsImage}
-            resizeMode="cover"
+          <NewsCard
+            image={require("../assets/ilustrations/News/IA.jpg")}
+            title="Você sabe como funciona uma IA?"
+            onPress={() => console.log("Clique card Notícia")}
           />
-        </View>
+          <NewsCard
+            image={require("../assets/ilustrations/News/Feira.jpg")}
+            title="Experimentos para sua feira de ciências"
+            onPress={() => console.log("Clique card Notícia")}
+          />
+                    <NewsCard
+            image={require("../assets/ilustrations/News/Barco.jpeg")}
+            title="Como criar um barco movido a motores DC"
+            onPress={() => console.log("Clique card Notícia")}
+          />
+        </ScrollView>
       </View>
 
       <BetaMessage />
@@ -146,14 +161,10 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginBottom: 12,
   },
-  newsRow: {
+  newsScroll: {
     flexDirection: "row",
     gap: 12,
-  },
-  newsImage: {
-    flex: 1,
-    height: 110,
-    borderRadius: 12,
+    paddingRight: 20,
   },
   bottomSpacing: {
     height: 20,
