@@ -1,10 +1,16 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ImageSourcePropType } from 'react-native';
 import { styles } from './styles';
 import { HeartIcon, ShareIcon, BookmarkIcon } from '../icons';
 import { colors } from '../../constants/colors';
 
-export const ConstructionCard = ({ image, title, description }) => {
+interface ConstructionCardProps {
+  image: ImageSourcePropType;
+  title: string;
+  description: string;
+}
+
+export const ConstructionCard = ({ image, title, description }: ConstructionCardProps) => {
   return (
     <View style={styles.constructionCard}>
       {/* Imagem à esquerda */}
@@ -20,15 +26,15 @@ export const ConstructionCard = ({ image, title, description }) => {
         {/* Botões de ação */}
         <View style={styles.actionButtons}>
           <TouchableOpacity style={styles.actionButton}>
-            <HeartIcon width={20} height={20} color={colors.text.secundary} />
+            <HeartIcon width={20} height={20} />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.actionButton}>
-            <ShareIcon width={20} height={20} color={colors.text.secundary} />
+            <ShareIcon width={20} height={20} />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.actionButton}>
-            <BookmarkIcon width={20} height={20} color={colors.text.secundary} />
+            <BookmarkIcon width={20} height={20} />
           </TouchableOpacity>
         </View>
 

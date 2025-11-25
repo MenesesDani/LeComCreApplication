@@ -6,53 +6,48 @@ export const styles = StyleSheet.create({
   constructionCard: {
     flexDirection: 'row',
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    padding: 12,
-    gap: 12,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-
-  constructionImage: {
-    width: 80,
-    height: 80,
     borderRadius: 8,
+    padding: 8,
+    gap: 12,
+  },
+  constructionImage: {
+    width: 120,
+    height: 160,
+    borderRadius: 4,
+    backgroundColor: '#F5F5F5',
   },
 
   constructionContent: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
+    paddingVertical: 4,
   },
 
   constructionTitle: {
     ...TYPOGRAPHY.body,
-    fontWeight: '600',
-    fontSize: 14,
+    fontWeight: '700',
+    fontSize: 18,
     color: colors.brand.deepBlue,
-    lineHeight: 18,
-    marginBottom: 4,
+    lineHeight: 24,
+    marginBottom: 8,
   },
 
   constructionDescription: {
     ...TYPOGRAPHY.body,
-    fontSize: 12,
+    fontSize: 14,
     color: colors.text.secundary,
-    lineHeight: 16,
-    marginBottom: 8,
+    lineHeight: 20,
+    marginBottom: 16,
+    flex: 1,
   },
 
   actionButtons: {
     flexDirection: 'row',
-    gap: 16,
+    gap: 20,
+    alignItems: 'center',
   },
 
   actionButton: {
-    padding: 4,
+    padding: 6,
   },
 });
