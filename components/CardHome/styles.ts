@@ -4,8 +4,8 @@ import { TYPOGRAPHY } from '../../constants/typography';
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    gap: 8,
+    alignItems: 'flex-start',
+    gap: 10,
   },
   image: {
     width: 170,
