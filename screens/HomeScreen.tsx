@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ButtonNext from "../components/ButtonNext";
 import BetaMessage from "../components/BetaMessage";
+import CardHome from "../components/CardHome";
 
 
 type RootStackParamList = {
@@ -18,6 +19,10 @@ const HomeScreen = () => {
 
   const handleNext = () => {
     navigation.navigate("ConstructionCover");
+  };
+
+  const handleCardPress = (cardName: string) => {
+    console.log(`Card ${cardName} pressionado`);
   };
 
   return (
@@ -44,22 +49,18 @@ const HomeScreen = () => {
         <View style={styles.dot} />
       </View>
 
-      <View style={styles.squareCardsContainer}>
-        <TouchableOpacity style={styles.squareCard}>
-          <Image
-            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
-            style={styles.cardImage}
-            resizeMode="cover"
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.squareCard}>
-          <Image
-            source={require("../assets/constructions/Smars/CardRoboSmars.png")}
-            style={styles.cardImage}
-            resizeMode="cover"
-          />
-        </TouchableOpacity>
+      <View style={styles.cardsHomeContainer}>
+        <CardHome
+          image={require("../assets/constructions/Smars/CardRoboSmars.png")}
+          title="Pontuação"
+          onPress={() => handleCardPress("Pontuação")}
+        />
+        
+        <CardHome
+          image={require("../assets/constructions/Smars/CardRoboSmars.png")}
+          title="Conquistas"
+          onPress={() => handleCardPress("Conquistas")}
+        />
       </View>
 
       <View style={styles.newsContainer}>
@@ -126,24 +127,13 @@ const styles = StyleSheet.create({
     bottom: -20,
     right: -5,
   },
-  squareCardsContainer: {
+  cardsHomeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignSelf: "stretch",
-    paddingHorizontal: 40,
+    paddingHorizontal: 24,
     marginTop: 20,
     gap: 16,
-  },
-  squareCard: {
-    flex: 1,
-    aspectRatio: 1,
-    borderRadius: 16,
-    overflow: "hidden",
-    backgroundColor: "#f2f2f2",
-  },
-  cardImage: {
-    width: "100%",
-    height: "100%",
   },
   newsContainer: {
     marginTop: 28,
